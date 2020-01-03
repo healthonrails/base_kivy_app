@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Config &mdash; BaseKivyApp  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="App" href="app.html" />
+    <link rel="prev" title="base_kivy_app" href="base_kivy_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BaseKivyApp
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">base_kivy_app Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">The base_kivy_app API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="base_kivy_app.html">base_kivy_app</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BaseKivyApp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">The base_kivy_app API</a> &raquo;</li>
+        
+      <li>Config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-base_kivy_app.config"><span id="config-api"></span></span><div class="section" id="config">
+<h1>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h1>
+<p>Configuration used across kivy apps.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Configuration works as follows. Each class that has configuration attributes
+must list these attributes in a list in the class <code class="docutils literal notranslate"><span class="pre">__config_props__</span></code>
+attribute. Each of the properties listed there must be “Kivy” properties of
+that class.</p>
+<p>When generating docs, the documentation of these properties are dumped to
+a json file using <a class="reference internal" href="#base_kivy_app.config.create_doc_listener" title="base_kivy_app.config.create_doc_listener"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_doc_listener()</span></code></a>.</p>
+<p>Each app instance defines a application class based on
+<a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp" title="base_kivy_app.app.BaseKivyApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseKivyApp</span></code></a>. Using this classe’s
+<a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp.get_config_classes" title="base_kivy_app.app.BaseKivyApp.get_config_classes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_config_classes()</span></code></a> method we get a list
+of all classes used in the current app that requires configuration
+and <a class="reference internal" href="#base_kivy_app.config.write_config_attrs_rst" title="base_kivy_app.config.write_config_attrs_rst"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_config_attrs_rst()</span></code></a> is used to combine all these docs
+and display them in a single place in the generated html pages.</p>
+<p>Similarly, when the app is run, a single json file is generated with all these
+config values and is later read and is used to configure the app by the
+user. <a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp.app_settings" title="base_kivy_app.app.BaseKivyApp.app_settings"><code class="xref py py-attr docutils literal notranslate"><span class="pre">app_settings</span></code></a> is where it’s stored
+after reading. Each class is responsible for reading its configuration
+from there.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>When creating an app, ensure that the app
+inherited from <a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp" title="base_kivy_app.app.BaseKivyApp"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseKivyApp</span></code></a> overwrites the
+<a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp.get_config_classes" title="base_kivy_app.app.BaseKivyApp.get_config_classes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_config_classes()</span></code></a> method
+returning all the classes that need configuration.</p>
+<p>Then, in the sphinx conf.py file do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">package</span>
+    <span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">MyApp</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s1">&#39;BASEKIVYAPP_CONFIG_DOC_PATH&#39;</span><span class="p">,</span> <span class="s1">&#39;config_attrs.json&#39;</span><span class="p">)</span>
+    <span class="n">create_doc_listener</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">package</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">MyApp</span><span class="o">.</span><span class="n">get_running_app</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">MyApp</span><span class="o">.</span><span class="n">get_running_app</span><span class="p">()</span><span class="o">.</span><span class="n">get_config_instances</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">MyApp</span><span class="o">.</span><span class="n">get_config_classes</span><span class="p">()</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+        <span class="s1">&#39;build-finished&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span>
+            <span class="n">write_config_attrs_rst</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">package</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">fname</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>and run <cite>make html</cite> twice. This will create the <code class="docutils literal notranslate"><span class="pre">config_attrs.json</span></code> file
+and the config.rst file under source/. This
+config.rst should have been listed in the sphinx index so on the second run
+this file will be converted to html containing all the config tokens.</p>
+<p>You should similarly run doc generation for all packages the your package
+relies on so you get all their config options in <code class="docutils literal notranslate"><span class="pre">config_attrs.json</span></code>
+so they can be included in the docs.</p>
+<dl class="function">
+<dt id="base_kivy_app.config.read_config_from_file">
+<code class="sig-prename descclassname">base_kivy_app.config.</code><code class="sig-name descname">read_config_from_file</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#base_kivy_app.config.read_config_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the config file and loads all the config data.</p>
+<p>The config data is returned as a dict. If there’s an error, an empty dict
+is returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="base_kivy_app.config.apply_config">
+<code class="sig-prename descclassname">base_kivy_app.config.</code><code class="sig-name descname">apply_config</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">config</em>, <em class="sig-param">set_props_only=False</em><span class="sig-paren">)</span><a class="headerlink" href="#base_kivy_app.config.apply_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the config data read with <code class="xref py py-func docutils literal notranslate"><span class="pre">read_config_from_object()</span></code>
+or <a class="reference internal" href="#base_kivy_app.config.read_config_from_file" title="base_kivy_app.config.read_config_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_config_from_file()</span></code></a> and applies
+them to any existing class instances listed in classes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="base_kivy_app.config.create_doc_listener">
+<code class="sig-prename descclassname">base_kivy_app.config.</code><code class="sig-name descname">create_doc_listener</code><span class="sig-paren">(</span><em class="sig-param">sphinx_app</em>, <em class="sig-param">package</em>, <em class="sig-param">filename='config_attrs.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#base_kivy_app.config.create_doc_listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a listener for the <code class="docutils literal notranslate"><span class="pre">__config_props__</span></code> attributes and dumps
+the docs of any props listed to <code class="docutils literal notranslate"><span class="pre">filename</span></code>. If the file
+already exists, it extends it with new data and overwrites any exiting
+properties that we see again in this run.</p>
+<p>To use, in the sphinx conf.py file do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">package</span>
+    <span class="n">create_doc_listener</span><span class="p">(</span>
+        <span class="n">app</span><span class="p">,</span> <span class="n">package</span><span class="p">,</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;BASEKIVYAPP_CONFIG_DOC_PATH&#39;</span><span class="p">,</span> <span class="s1">&#39;config_attrs.json&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">package</span></code> is the module for which the docs are generated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="base_kivy_app.config.get_config_attrs_doc">
+<code class="sig-prename descclassname">base_kivy_app.config.</code><code class="sig-name descname">get_config_attrs_doc</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">filename='config_attrs.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#base_kivy_app.config.get_config_attrs_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Objects is a dict of object (class) paths and keys are the names of the
+config attributes of the class.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="base_kivy_app.config.write_config_attrs_rst">
+<code class="sig-prename descclassname">base_kivy_app.config.</code><code class="sig-name descname">write_config_attrs_rst</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">package</em>, <em class="sig-param">app</em>, <em class="sig-param">exception</em>, <em class="sig-param">filename='config_attrs.json'</em>, <em class="sig-param">rst_fname='source/config.rst'</em><span class="sig-paren">)</span><a class="headerlink" href="#base_kivy_app.config.write_config_attrs_rst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walks through all the configurable classes of this package
+(should be gotten from
+<a class="reference internal" href="app.html#base_kivy_app.app.BaseKivyApp.get_config_classes" title="base_kivy_app.app.BaseKivyApp.get_config_classes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_config_classes()</span></code></a> or
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_config_instances()</span></code>) and loads the
+docs of those properties and generates a rst output file with all the
+tokens.</p>
+<p>For example in the sphinx conf.py file do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;build-finished&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">write_config_attrs_rst</span><span class="p">,</span> <span class="n">ProjectApp</span><span class="o">.</span><span class="n">get_config_classes</span><span class="p">(),</span> <span class="n">project_name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where project_name is the project module and ProjectApp is the App of the
+package.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="app.html" class="btn btn-neutral float-right" title="App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="base_kivy_app.html" class="btn btn-neutral float-left" title="base_kivy_app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Matthew Einhorn
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
